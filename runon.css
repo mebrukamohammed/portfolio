@@ -1,0 +1,32 @@
+.runon.css{
+    display:flex;
+    justify-content: space-between;
+
+
+
+}
+.project {
+    border-radius: 12px;
+    width:fit-content;
+    padding:10px;
+    transform: translateY(4px);
+    position: absolute;
+
+    
+}
+.project img{
+   position:relative;
+   width:100%;
+   height: 2/3;
+
+
+
+
+
+}
+.try-it out{
+    display:flex;
+    padding:10px;
+    border-radius: 8px;
+    text-align: center;
+}
