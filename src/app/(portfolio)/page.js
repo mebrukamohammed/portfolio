@@ -8,7 +8,7 @@ export default function Home() {
 
       <nav className="flex flex-row flex-wrap items-center justify-evenly gap-3 rounded-xl p-2 text-white/90">
         <Link href="/about">About</Link>
-        <Link href="/projects">Projects</Link>
+        <Link href="/project">Projects</Link>
         <Link href="/experience">Experience</Link>
         <Link href="/contact">Contact</Link>
       </nav>
