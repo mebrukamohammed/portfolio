@@ -1,25 +1,14 @@
-
 import "./globals.css";
 
-
-
-// Configure them
-
+export const metadata = {
+  title: "Mebruka Mohammed",
+  description: "Personal portfolio",
+};
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="font-sans">
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
-
-
-
-export const metadata = {
-  title: "Mebruka Mohammed",
-  description: "personal portfolio",
-};
-

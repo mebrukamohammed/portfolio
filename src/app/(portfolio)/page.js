@@ -1,43 +1,80 @@
-
 import Link from "next/link";
 import Image from "next/image";
+import "./home.css";
+
+const navigation = [
+  { label: "About", href: "/about" },
+  { label: "Projects", href: "/project" },
+  { label: "Experience", href: "/experience" },
+  { label: "Contact", href: "/contact" },
+];
 
 export default function Home() {
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-12 px-6 py-8">
+    <main className="home-page">
 
-      <nav className="flex flex-row flex-wrap items-center justify-evenly gap-3 rounded-xl p-2 text-white/90">
-        <Link href="/about">About</Link>
-        <Link href="/project">Projects</Link>
-        <Link href="/experience">Experience</Link>
-        <Link href="/contact">Contact</Link>
-      </nav>
+      <header className="home-header">
+        <Link href="/" className="home-logo">
+          Mebruka<span>.</span>
+        </Link>
 
-      <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
+        
+      </header>
 
-        <section className="hero">
-          <h1 className="flex items-center text-4xl font-bold md:text-6xl">
-            Building things that matter
+      {/* Hero */}
+      <section className="hero-section">
+
+        <div className="hero-content">
+          <span className="hero-intro">
+            HELLO, I'M MEBRUKA
+          </span>
+
+          <h1>
+            Building things
+            <br />
+            that <span>matter.</span>
           </h1>
 
-          <p className="mt-4 text-sm md:text-base">
-            Delivering on time
+          <p className="hero-description">
+            I'm a software developer building toward implementing technology for the coomon good of the society.
+            I enjoy turning ideas into meaningful digital experiences
+            and solving real-world problems through technology.
           </p>
-        </section>
 
-        <Image
-          src="/Arteta.png"
-          alt="Profile picture"
-          width={400}
-          height={400}
-          className="mx-auto h-auto w-full max-w-sm rounded-full object-cover"
-        />
+          <div className="hero-actions">
+            <Link href="/project" className="primary-action">
+              See my projects <span>↗</span>
+            </Link>
 
-      </div>
+            <Link href="/contact" className="secondary-action">
+              Let's talk <span>→</span>
+            </Link>
+          </div>
+        </div>
 
-      <div className="flex flex-row flex-wrap justify-evenly gap-4 p-2">
-        <Link href="/projects">See my projects</Link>
-        <Link href="/contact">Lets talk</Link>
+        <div className="hero-image-wrapper">
+          <div className="image-decoration"></div>
+
+          <Image
+            src="/Arteta.png"
+            alt="Mebruka's profile picture"
+            width={440}
+            height={440}
+            priority
+            className="hero-image"
+          />
+
+          <span className="image-caption">
+            SOFTWARE DEVELOPER · AI ENTHUSIAST
+          </span>
+        </div>
+
+      </section>
+
+      {/* Bottom accent */}
+      <div className="home-bottom">
+        <span>CREATIVE THINKING. MEANINGFUL BUILDING.</span>
+        <span>SCROLL TO EXPLORE ↓</span>
       </div>
 
     </main>

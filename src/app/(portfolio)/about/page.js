@@ -1,37 +1,94 @@
-
-import Image from "next/image";
 import ImageSlider from "./ImageSlider";
+import "./about.css";
 
-const About = () => {
-    return ( <>
-   <div>
-  {/* Page Header */}
-  <h1 className="flex items-center justify-center text-center text-4xl font-bold md:text-6xl mb-8">
-  WHO I AM ?
-</h1>
+export default function About() {
+  return (
+    <main className="about-page">
 
-  {/* Main content wrapper with a comfortable maximum reading width */}
-<section className="w-full px-6 py-12 md:px-12">
-  <p className="w-full text-white text-md leading-relaxed text-justify">
-    I am Mebruka Mohammed, currently a 3rd-year Computer Science student at Addis Ababa University, having completed my primary education at Alif KG-Primary and Secondary School. Since that time, Ive maintained a passion for looking beyond standard frameworks and constantly planning to build new things. I then attended Memhir Akalwold Secondary School with a special class cohort in Dessie, where I graduated with highly distinguished marks on my national exams, earning placement in Africas 10th-ranked university. Recognizing how the world is advancing through technological revolutions and Ethiopias bold steps toward digitalization, combined with my previous experiences, I chose Computer Science for my bachelors degree. Since enrolling, I have embraced the dedication required to be a skilled software developer and a collaborative team player—knowing that software is built on teamwork. From frontend development with React and JavaScript to full-stack engineering in Next.js and supervised machine learning with Python, I continue to expand my expertise into systems engineering and software project management.
-  </p>
-</section>
-</div>
-<ImageSlider/>
+      <section className="about-container">
 
+        {/* Introduction */}
+        <div className="about-content">
 
+          <span className="about-eyebrow">
+            GET TO KNOW ME
+          </span>
 
-    
-    
-    
-    </> );
+          <h1 className="about-heading">
+            WHO <span>I AM.</span>
+          </h1>
+
+          <div className="about-text">
+
+            <p>
+              I'm Mebruka Mohammed, a third-year Computer Science
+              student at Addis Ababa University, with a passion
+              for technology, creativity, and building things
+              that make a difference.
+            </p>
+
+            <p>
+              My academic journey began at Alif KG-Primary School
+              and continued at Memhir Akalwold Secondary School
+              in Dessie, where I joined a special class cohort
+              and graduated with highly distinguished marks
+              in my national examinations.
+            </p>
+
+            <p>
+              As technology continues to transform the world,
+              and Ethiopia takes bold steps toward digitalization,
+              I chose Computer Science as the foundation for
+              contributing to that transformation.
+            </p>
+
+            <p>
+              Since joining university, I've been committed to
+              becoming a skilled software developer and a
+              collaborative team player. I believe meaningful
+              software is built through both technical expertise
+              and teamwork.
+            </p>
+
+            <p>
+              From frontend development with JavaScript and React
+              to full-stack development with Next.js and supervised
+              machine learning with Python, I'm continuously
+              expanding my knowledge toward AI engineering,
+              systems engineering, and software project management.
+            </p>
+
+          </div>
+
+          <div className="about-signature">
+            <span className="signature-line"></span>
+            <span>Always learning. Always building.</span>
+          </div>
+
+        </div>
+
+        {/* Image Slider */}
+        <div className="about-visual">
+          <div className="slider-frame">
+            <ImageSlider />
+          </div>
+
+          <div className="visual-caption">
+            <span>MY JOURNEY</span>
+            <span>01 — 05</span>
+          </div>
+        </div>
+
+      </section>
+
+      {/* Closing statement */}
+      <section className="about-bottom">
+        <p>
+          Curious by nature.
+          <span> Driven by possibilities.</span>
+        </p>
+      </section>
+
+    </main>
+  );
 }
- 
-export default About;
-   
-
-   
-
-
-
-

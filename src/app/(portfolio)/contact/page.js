@@ -1,99 +1,166 @@
 "use client";
 
 import { useState } from "react";
-import { WhatsappIcon } from "@/app/icons";
-import { LinkedinIcon } from "@/app/icons";
-import { GlobeIcon } from "@/app/icons";
-import { TelegramIcon } from "@/app/icons";
 import Link from "next/link";
+import Footer from "@/app/components/footer";
+import "./page.css"
 
-const Contact = () => {
+import {
+  WhatsappIcon,
+  LinkedinIcon,
+  TelegramIcon,
+  GithubIcon,
+} from "@/app/icons";
+
+import "./page.css";
+
+const email = "mebrukamohammedahmed@gmail.com";
+
+const contactMethods = [
+  {
+    name: "LinkedIn",
+    description: "Let's connect professionally",
+    href: "https://www.linkedin.com/in/mebrukamohammed",
+    icon: LinkedinIcon,
+  },
+  {
+    name: "WhatsApp",
+    description: "Have a quick conversation",
+    href: "https://wa.me/251993092854",
+    icon: WhatsappIcon,
+  },
+  {
+    name: "Telegram",
+    description: "Reach me on Telegram",
+    href: "https://t.me/Mebubliss",
+    icon: TelegramIcon,
+  },
+  {
+    name: "GitHub",
+    description: "Explore my work and projects",
+    href: "https://github.com/mebrukamohammed",
+    icon: GithubIcon,
+  },
+];
+
+export default function Contact() {
   const [copied, setCopied] = useState(false);
-  
-  // Capitalized component variables
-  const LinkedIn = LinkedinIcon;
-  const Whatsapp = WhatsappIcon;
-  const Telegram = TelegramIcon;
-  const Web = GlobeIcon;
 
-  const hreflinkedin = "https://www.linkedin.com/in/mebrukamohammed";
-  const hrefwhatsapp = "https://wa.me/251993092854";
-  const hreftelegram = "https://t.me/Mebubliss";
-  const hrefweb = "http://192.168.137.1:3000";
-  
-  const email = "mebrukamohammedahmed@gmail.com";
-  
-  const handleCopy = async () => {
+  async function handleCopy() {
     try {
       await navigator.clipboard.writeText(email);
       setCopied(true);
+
       setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error("couldnt copy text");
+    } catch (error) {
+      console.error("Unable to copy email:", error);
     }
-  };
-   
+  }
+
   return (
-    <div className="flex flex-col items-center gap-4 py-8">
-      <p className="text-zinc-400 text-sm">Glad to talk with you.</p>
-      
-      <button
-        onClick={handleCopy}
-        className="inline-flex items-center gap-2 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-white rounded-lg transition-all text-sm font-medium border border-zinc-700 cursor-pointer"
-      >
-        <span>{email}</span>
-        <span className="text-zinc-400">|</span>
-        <span className="text-blue-400 font-semibold">
-          {copied ? "Copied!" : "Copy"}
+    <main className="contact-page">
+
+      {/* INTRODUCTION */}
+      <section className="contact-hero">
+
+        <span className="contact-eyebrow">
+          HAVE SOMETHING IN MIND?
         </span>
-      </button>
 
-      <h2 className="text-xl font-bold text-white mt-4">Social Links</h2>
-      
-      {/* Social Links Row / List */}
-      <div className="flex items-center gap-6 mt-2">
-        {/* LinkedIn Link */}
-        <Link 
-          href={hreflinkedin} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-white hover:text-blue-400 transition-colors"
-        >
-          <LinkedIn className="w-6 h-6" />
-        </Link>
+        <h1>
+          LET'S <span>CONNECT.</span>
+        </h1>
 
-        {/* WhatsApp Link */}
-        <Link 
-          href={hrefwhatsapp} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-white hover:text-green-400 transition-colors"
-        >
-          <Whatsapp className="w-6 h-6" />
-        </Link>
+        <p>
+          Whether you have an interesting project, an opportunity,
+          a collaboration idea, or simply want to say hello,
+          I'd be happy to hear from you.
+        </p>
 
-        {/* Telegram Link */}
-        <Link 
-          href={hreftelegram} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-white hover:text-sky-400 transition-colors"
-        >
-          <Telegram className="w-6 h-6" />
-        </Link>
+      </section>
 
-        {/* Website Link */}
-        <Link 
-          href={hrefweb} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-white hover:text-zinc-300 transition-colors"
-        >
-          <Web className="w-6 h-6" />
-        </Link>
-      </div>
-    </div>
+      {/* EMAIL SECTION */}
+      <section className="contact-email-section">
+
+        <div className="contact-email-heading">
+          <span className="contact-icon">✉</span>
+
+          <div>
+            <h2>Drop me an email</h2>
+            <p>The best way to reach me directly.</p>
+          </div>
+        </div>
+
+        <div className="email-card">
+
+          <a href={`mailto:${email}`} className="email-address">
+            {email}
+          </a>
+
+          <button
+            type="button"
+            onClick={handleCopy}
+            className={`copy-button ${copied ? "copied" : ""}`}
+          >
+            {copied ? "Copied ✓" : "Copy email"}
+          </button>
+
+        </div>
+
+        <a href={`mailto:${email}`} className="email-action">
+          Send me a message <span>↗</span>
+        </a>
+
+      </section>
+
+      {/* SOCIAL CONNECTIONS */}
+      <section className="contact-social-section">
+
+        <div className="contact-section-heading">
+          <span>01 / SOCIAL CONNECTIONS</span>
+          <h2>Find me elsewhere.</h2>
+        </div>
+
+        <div className="contact-methods">
+
+          {contactMethods.map((method, index) => {
+            const Icon = method.icon;
+
+            return (
+              <a
+                href={method.href}
+                key={method.name}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-method-card"
+                style={{ "--card-index": index }}
+              >
+                <div className="contact-method-icon">
+                  <Icon />
+                </div>
+
+                <div className="contact-method-info">
+                  <h3>{method.name}</h3>
+                  <p>{method.description}</p>
+                </div>
+
+                <span className="contact-arrow">↗</span>
+              </a>
+            );
+          })}
+
+        </div>
+
+      </section>
+
+      {/* CLOSING MESSAGE */}
+      <section className="contact-closing">
+        <p>
+          Good things begin with a conversation.
+          <span> Let's make something meaningful.</span>
+        </p>
+      </section>
+
+    </main>
   );
-};
-
-export default Contact;
+}

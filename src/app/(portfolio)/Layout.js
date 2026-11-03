@@ -1,7 +1,10 @@
-export function PortfolioLayout({children}){
-     return (
-    <html lang="en" >
-      <body>{children}</body>
-    </html>
+import NavBar from "../components/NavBar";
+
+export default function PortfolioLayout({ children }) {
+  return (
+    <>
+      <NavBar />
+      <main>{children}</main>
+    </>
   );
 }

@@ -1,219 +1,330 @@
-"use client"
+"use client";
+
 import Image from "next/image";
-import { GithubIcon } from "../../icons";
 import { useState } from "react";
-
-const Projects = () => {
-  // Capitalize the variable name so React treats it as a component
-  const Icon = GithubIcon;
-  const [selectedTech, setSelectedTech]=useState("");
-  const href = "https://github.com/mebrukamohammed";
-  const githubFinder=" https://github.com/mebrukamohammed/github-user-founder";
-  const expenseTracker="https://github.com/mebrukamohammed/expense-tracker";
-  const kanbanBoard="https://github.com/mebrukamohammed/kanban-board-sample";
-  const ColorPallete="https://github.com/mebrukamohammed/color-pallete-generator";
-  const QuizApp="https://github.com/mebrukamohammed/quiz-app";
-  const movieApp="https://github.com/mebrukamohammed/movie-app-react"
-  const regressionEngine="https://gist.github.com/mebrukamohammed/ae683cf4ca71e20696c027ac79d8d443"
-  const LevelEngine="https://gist.github.com/mebrukamohammed/110df967fcd26a7b84a0a854c2a7cf9b"
-  const NLPMETA="https://gist.github.com/mebrukamohammed/e4e3f97ee2b9b049043e0ba7516f6f0f"
-  const NLPNVIDIA="https://gist.github.com/mebrukamohammed/270b94a51afee66f7c0f8739720bd257"
-  const churnRate="https://gist.github.com/mebrukamohammed/ea7df510e1e6208a0421c56cc497dc81"
-  const onlineLearningPrediction="https://gist.github.com/mebrukamohammed/1f51dca7df7c3649535cb976cef06b3b"
-  const gameDesign="https://docs.google.com/document/d/1QR9IQgnW2aW_eT_0IKZSz_46KAeoWit1Ttsehp4NLnw/edit?usp=sharing"
- const parrotLink=" https://play.google.com/store/apps/details?id=com.kokebtemari.app&pli=1"
-  
-
+import { GithubIcon } from "../../icons";
+import "./project.css";
 
 const allProjects = [
   {
+    id: 1,
     title: "SocialHub",
-    description: "Social networking app that people can share thoughts, posts, and perform social activities.",
+    description:
+      "A social networking application where users can share thoughts, publish posts, and interact with other people.",
     image: "/Arteta.png",
     category: "React",
     href: "https://github.com/mebrukamohammed",
   },
   {
+    id: 2,
     title: "GitHub User Finder",
-    description: "A web application that allows users to instantly search GitHub profiles and stats.",
+    description:
+      "A web application that allows users to search GitHub profiles and explore their public statistics.",
     image: "/github-finder.jpg",
     category: "HTML/CSS/JS",
-    href:githubFinder
+    href: "https://github.com/mebrukamohammed/github-user-founder",
   },
   {
+    id: 3,
     title: "Expense Tracker",
-    description: "An expense tracker app that records and calculates each expense and deposit you save.",
+    description:
+      "An expense tracking application that records and calculates expenses and deposits.",
     image: "/expense-tracker.jpg",
     category: "HTML/CSS/JS",
-    href: expenseTracker
+    href: "https://github.com/mebrukamohammed/expense-tracker",
   },
-    {
-    title: "Color Pallete Generator",
-    description: "Simple app to generate what ever color hex code user wants.",
+  {
+    id: 4,
+    title: "Color Palette Generator",
+    description:
+      "A simple application for generating and exploring color hex codes.",
     image: "/Arteta.png",
     category: "HTML/CSS/JS",
-    href: ColorPallete
+    href: "https://github.com/mebrukamohammed/color-pallete-generator",
   },
-    {
+  {
+    id: 5,
     title: "Quiz App",
-    description: "Quiz taking platform by giving specified amount of questions in general knowledge category",
+    description:
+      "A quiz platform that presents general knowledge questions and evaluates user answers.",
     image: "/Arteta.png",
     category: "HTML/CSS/JS",
-    href: QuizApp
+    href: "https://github.com/mebrukamohammed/quiz-app",
   },
-    {
+  {
+    id: 6,
     title: "Kanban Board",
-    description: "A simple kanban like board to track progress in day to day activities.",
+    description:
+      "A task management board for organizing activities and tracking daily progress.",
     image: "/kanban-board.jpg",
     category: "HTML/CSS/JS",
-    href: kanbanBoard
+    href: "https://github.com/mebrukamohammed/kanban-board-sample",
   },
-   {
+  {
+    id: 7,
     title: "Movie Base",
-    description: "searching movies and saving in favorites.",
+    description:
+      "A React application for searching movies and saving favorites.",
     image: "/Arteta.png",
     category: "React",
-    href: movieApp
+    href: "https://github.com/mebrukamohammed/movie-app-react",
   },
-   {
-    title: "Natural Language Processing",
-    description: "embedded one game type in kokeb temari learning platform , that used to grade kids reading and pronounciation correctness.",
+  {
+    id: 8,
+    title: "Reading Evaluation — NVIDIA",
+    description:
+      "A children's reading evaluator using speech recognition and pronunciation assessment.",
     image: "/Arteta.png",
     category: "Python",
-    href: NLPNVIDIA
+    href: "https://gist.github.com/mebrukamohammed/270b94a51afee66f7c0f8739720bd257",
   },
-   {
-    title: "Natural Language Processing",
-    description: "kids reading evaluator using Meta's wav2vec model ,with engineered scoring layers above.",
+  {
+    id: 9,
+    title: "Reading Evaluation — Meta",
+    description:
+      "A children's reading evaluator using Meta's Wav2Vec model with engineered scoring layers.",
     image: "/Arteta.png",
     category: "Python",
-    href: NLPMETA
+    href: "https://gist.github.com/mebrukamohammed/e4e3f97ee2b9b049043e0ba7516f6f0f",
   },
-
-   {
+  {
+    id: 10,
     title: "Next Game Level Predictor",
-    description: "Using classification technique , an engine that can predict to what level the student should be routed in a controlled game. ",
+    description:
+      "A supervised learning engine that predicts the appropriate game level for a student.",
     image: "/Arteta.png",
-    category: "supervised learning",
-    href: LevelEngine
+    category: "Supervised Learning",
+    href: "https://gist.github.com/mebrukamohammed/110df967fcd26a7b84a0a854c2a7cf9b",
   },
-   {
+  {
+    id: 11,
     title: "Churn Predictor",
-    description: "Using XGB classifier flagging churn probability as high ,medium or low",
+    description:
+      "An XGBoost classification model that categorizes churn probability as high, medium, or low.",
     image: "/Arteta.png",
-    category: "supervised learning",
-    href: churnRate
+    category: "Supervised Learning",
+    href: "https://gist.github.com/mebrukamohammed/ea7df510e1e6208a0421c56cc497dc81",
   },
-   {
-    title: "e-learning adoption rate",
-    description: "Using random forest classifier, predicting the probability of a school to adopt e-learning. ",
+  {
+    id: 12,
+    title: "E-learning Adoption Predictor",
+    description:
+      "A Random Forest classifier that predicts the probability of a school adopting e-learning.",
     image: "/Arteta.png",
-    category: "supervised learning",
-    href: onlineLearningPrediction
+    category: "Supervised Learning",
+    href: "https://gist.github.com/mebrukamohammed/1f51dca7df7c3649535cb976cef06b3b",
   },
-   {
-    title: "Nginx data analysis",
-    description: "relationship analyzer for production app Nginx report logs.",
+  {
+    id: 13,
+    title: "Nginx Data Analysis",
+    description:
+      "An analytical project exploring production application Nginx report logs.",
     image: "/Arteta.png",
-    category: "supervised learning",
-    href: QuizApp
+    category: "Data Analysis",
+    href: null,
   },
-   {
+  {
+    id: 14,
     title: "Mama Africa",
-    description: "Kids Geography game about All african countries and their culture.",
+    description:
+      "A children's geography game exploring African countries and their cultures.",
     image: "/Arteta.png",
-    category: "instructional game design",
-    href: gameDesign
+    category: "Game Design",
+    href: "https://docs.google.com/document/d/1QR9IQgnW2aW_eT_0IKZSz_46KAeoWit1Ttsehp4NLnw/edit?usp=sharing",
   },
-   {
+  {
+    id: 15,
     title: "Parrot Game",
-    description: "Kids pronounciation and reading evalQ3EXHJ0",
+    description:
+      "A children's reading and pronunciation evaluation game integrated into the Kokeb Temari learning platform.",
     image: "/Arteta.png",
     category: "Python",
-    href: parrotLink}
-  
-
-
-
+    href: "https://play.google.com/store/apps/details?id=com.kokebtemari.app&pli=1",
+  },
 ];
-const filteredProjects=selectedTech==="All Technologies" ? allProjects : allProjects.filter(project=> project.category===selectedTech)
 
+const technologies = [
+  "All Technologies",
+  ...new Set(allProjects.map((project) => project.category)),
+];
 
+export default function Projects() {
+  const [selectedTech, setSelectedTech] = useState("All Technologies");
+  const [selectedProject, setSelectedProject] = useState(null);
 
-return (
-    <>
-      <div className="flex flex-row justify-between items-center w-full px-8 pt-30 pb-6">
-        <h2 className="text-2xl font-bold text-white">Top Featured</h2>
+  const filteredProjects =
+    selectedTech === "All Technologies"
+      ? allProjects
+      : allProjects.filter(
+          (project) => project.category === selectedTech
+        );
 
-        <select className="bg-zinc-800 text-white px-4 py-2 rounded-lg border border-zinc-700 outline-none" onChange={(e)=>setSelectedTech(e.target.value)}>
-          <option>All Technologies</option>
-        
-          <option>HTML/CSS/JS</option>
-          <option>React</option>
-          <option>Next.js</option>
-          <option>Python</option>
-          <option>C++</option>
-          <option>supervised learning</option>
-          <option>project management</option>
-          <option>instructional game design</option>
-        </select>
-      
+  function handleCardClick(projectId) {
+    setSelectedProject((current) =>
+      current === projectId ? null : projectId
+    );
+  }
 
-      </div>
-      
+  function handleFilterChange(e) {
+    setSelectedTech(e.target.value);
+    setSelectedProject(null);
+  }
+
+  return (
+    <main className="projects-page">
+
+     
+      <header className="projects-header">
+        <span className="projects-eyebrow">
+          MY CREATIVE WORK
+        </span>
+
+        <h1>
+          SELECTED <span>PROJECTS.</span>
+        </h1>
+
+        <p>
+          A collection of things I've built, explored,
+          and learned along my development journey.
+        </p>
+      </header>
+
     
-      
-
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6 px-8 py-6">
-        {filteredProjects.length>0 ? (
-               filteredProjects.map((project,index)=> <li key={index}>
-        <div className="w-[350px] bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-1 text-center flex flex-col">
-  <div className="relative w-full h-56">
-     <Image
-      src={project.image}
-      alt="project Image"
-      fill
-      sizes="(max-width: 768px) 100vw, 350px"
-      className="object-cover"
-    />
-    </div>
-     <div className="p-6 flex flex-col items-center flex-grow text-center">
-    <h3 className="text-xl font-bold text-white">{project.title}</h3>
-    
-    <p className="text-zinc-400 text-sm mt-2 leading-relaxed">
-     {project.description}
-    </p>
-    
-    <a
-      href={project.href}
-      target={href.startsWith("http") ? "_blank" : undefined}
-      rel="noopener noreferrer"
-      className="inline-flex items-center justify-center gap-2 mt-6 text-white hover:text-zinc-300 font-medium text-sm"
-    >
-      <Icon className="w-5 h-5" />
-      <span>contribute</span>
-    </a>
-  
-    <a
-      href={project.href}
-      target={href.startsWith("http") ? "_blank" : undefined}
-      rel="noopener noreferrer"
-      className="flex justify-center items-center p-2.5 mt-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white text-sm w-full transition-colors"
-    >
-      Try it out
-    </a>
-  </div>
-
-
-
-
-  </div>
-  
-               </li>
-        )):<p> No featured Technology</p>}
+      <section className="projects-toolbar">
+        <div>
+          <h2>Featured Work</h2>
+          <span>
+            {filteredProjects.length} projects
+          </span>
         </div>
-        </> )
+
+        <select
+          value={selectedTech}
+          onChange={handleFilterChange}
+          aria-label="Filter projects by technology"
+        >
+          {technologies.map((technology) => (
+            <option key={technology} value={technology}>
+              {technology}
+            </option>
+          ))}
+        </select>
+      </section>
+
+      {/* PROJECT GRID */}
+      <section
+        className={`projects-grid ${
+          selectedProject !== null ? "has-selection" : ""
+        }`}
+      >
+        {filteredProjects.map((project) => {
+          const isSelected = selectedProject === project.id;
+          const isDimmed =
+            selectedProject !== null && !isSelected;
+
+          return (
+            <article
+              key={project.id}
+              className={`project-card ${
+                isSelected ? "selected" : ""
+              } ${isDimmed ? "dimmed" : ""}`}
+              onClick={() => handleCardClick(project.id)}
+              onKeyDown={(e) => {
+                if (
+                  e.target === e.currentTarget &&
+                  (e.key === "Enter" || e.key === " ")
+                ) {
+                  e.preventDefault();
+                  handleCardClick(project.id);
+                }
+              }}
+              tabIndex={0}
+              role="button"
+              aria-pressed={isSelected}
+              aria-label={`Focus ${project.title} project`}
+            >
+              {/* IMAGE */}
+              <div className="project-image">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 650px) 100vw, (max-width: 1000px) 50vw, 33vw"
+                />
+
+                <span className="project-category">
+                  {project.category}
+                </span>
+
+                {isSelected && (
+                  <button
+                    className="project-close"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedProject(null);
+                    }}
+                    aria-label="Close focused project"
+                  >
+                    ×
+                  </button>
+                )}
+              </div>
+
+              {/* CONTENT */}
+              <div className="project-content">
+                <div>
+                  <span className="project-number">
+                    PROJECT / {String(project.id).padStart(2, "0")}
+                  </span>
+
+                  <h3>{project.title}</h3>
+
+                  <p>{project.description}</p>
+                </div>
+
+                <div className="project-actions">
+                  {project.href && (
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="project-link"
+                    >
+                      <GithubIcon />
+                      <span>
+                        {project.href.includes("github.com")
+                          ? "View source"
+                          : "Explore project"}
+                      </span>
+                      <span className="arrow">↗</span>
+                    </a>
+                  )}
+
+                  <span className="focus-hint">
+                    {isSelected ? "Focused" : "Click to focus ↗"}
+                  </span>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </section>
+
+      {filteredProjects.length === 0 && (
+        <p className="projects-empty">
+          No projects found for this technology.
+        </p>
+      )}
+
+      {/* BOTTOM */}
+      <footer className="projects-footer">
+        <p>
+          Every project is another step forward.
+          <span> More to come.</span>
+        </p>
+      </footer>
+
+    </main>
+  );
 }
-export default Projects
-  
-       
